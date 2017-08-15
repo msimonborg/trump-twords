@@ -14,6 +14,7 @@ Displays a word cloud of POTUS's last 30 days of Twitter activity.
 
 * [Twords](https://github.com/msimonborg/twords) gem
 
+
     $ bundle install
     $ rails db:create
     $ rails db:migrate
