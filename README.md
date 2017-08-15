@@ -14,11 +14,12 @@ Displays a word cloud of POTUS's last 30 days of Twitter activity.
 
 * [Twords](https://github.com/msimonborg/twords) gem
 
-
-    $ bundle install
-    $ rails db:create
-    $ rails db:migrate
-    $ rails server
+```shell
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+$ rails server
+```
 
 Open a second terminal and cd into the app root directory. Open the webpack development server for Javascript auto reloading.
 
