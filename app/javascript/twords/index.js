@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     list: words,
     fontFamily: 'Permanent Marker',
     fontWeight: 600,
-    gridSize: 1,
     gridSize: Math.round(16 * $('#my-canvas').width() / 10000),
-    weightFactor: 5
+    weightFactor: 4
   } );
 });
