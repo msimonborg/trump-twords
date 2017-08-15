@@ -19,3 +19,5 @@
 .byebug_history
 
 /vendor/
+/public/packs
+/node_modules

@@ -16,6 +16,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'twords', '~> 0.2.5'
 gem 'uglifier', '>= 1.3.0'
+gem 'webpacker', '~> 2.0'
+gem 'webpacker-react', '~> 0.3.1'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -34,6 +36,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'factory_girl_rails'
+  gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'selenium-webdriver'
