@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Displays a word cloud of POTUS's last 30 days of Twitter activity.
 
-Things you may want to cover:
+[See it on Heroku](https://trump-twords.herokuapp.com)
 
-* Ruby version
+* Ruby 2.4.1
 
-* System dependencies
+* Rails 5.1.3
 
-* Configuration
+* Node
 
-* Database creation
+* PostgreSQL
 
-* Database initialization
+* [Twords](https://github.com/msimonborg/twords) gem
 
-* How to run the test suite
+    $ bundle install
+    $ rails db:create
+    $ rails db:migrate
+    $ rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+Open a second terminal and cd into the app root directory. Open the webpack development server for Javascript auto reloading.
 
-* Deployment instructions
+    $ yarn install
+    $ bin/webpack-dev-server
 
-* ...
+To deploy to Heroku, just create a new app and push.
