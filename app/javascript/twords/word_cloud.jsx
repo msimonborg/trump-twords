@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   WordCloud(document.getElementById('my-canvas'), { 
     list: words,
     fontFamily: 'Permanent Marker',
-    fontWeight: 600,
+    fontWeight: 100,
     gridSize: Math.round(16 * $('#my-canvas').width() / 10000),
-    weightFactor: 4
+    weightFactor: 3,
+    minSize: 1
   } );
 });
