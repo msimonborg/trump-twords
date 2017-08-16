@@ -1,9 +1,8 @@
-
-<%= javascript_pack_tag 'application' %>
-
 <%= content_tag :div,
   id: :words_data,
   data: @tword.words.to_json do %>
 <% end %>
 
 <div id="my-canvas"></div>
+
+<%= javascript_pack_tag 'application' %>
