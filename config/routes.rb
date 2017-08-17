@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/
   }
   
+  get 'twords', to: 'twords#date_picker', as: :date_picker
+
   root to: 'twords#index'
 end

@@ -1,9 +1,20 @@
 
-<%= javascript_pack_tag 'application' %>
+<%= javascript_pack_tag 'react' %>
 
 <%= content_tag :div,
   id: :words_data,
-  data: @tword.words.to_json do %>
+  data: {
+    words: @tword.words,
+    environment: Rails.env,
+    cloud_visible: @cloud_visible,
+    date: @date
+  }.to_json do %>
 <% end %>
 
-<div id="my-canvas"></div>
+<%= content_tag :div,
+ id: :wrapper do %>
+  <div id="root"></div> 
+  <div id="my-canvas"></div>
+<% end %>
+
+
