@@ -18,7 +18,7 @@ class TwordsController < ApplicationController
   end
 
   def date_picker
-    @date = params[:date].sub(/GMT[-|+]?\d{4}/, '').to_time
+    @date = params[:date]&.sub(/GMT[-|+]?\d{4}/, '').to_time
     return unless @date.present?
     @tword = Tword.by_screen_name(SCREEN_NAME).where(created_at: @date.beginning_of_day..@date.end_of_day).recent.first
     if @tword.blank?
