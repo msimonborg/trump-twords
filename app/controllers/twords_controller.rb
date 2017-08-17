@@ -2,7 +2,6 @@ class TwordsController < ApplicationController
   SCREEN_NAME = 'realdonaldtrump'.freeze
 
   before_action :set_date_range, only: :index
-  skip_before_action :verify_authenticity_token, only: :date_picker
 
   def index
     @tword = Tword.by_screen_name(SCREEN_NAME).in_date_range(@date_range).recent.first

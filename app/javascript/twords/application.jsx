@@ -11,7 +11,7 @@ class Application extends React.Component {
     const data = JSON.parse(wordsData.getAttribute('data'))
     super()
     this.state = {
-      apiUrl: data.environment === 'development' ? 'http://localhost:3000/twords' : 'https://trump-twords.herokuapp.com/twords',
+      apiUrl: data.environment === 'development' ? 'http://localhost:3000/twords/' : 'https://trump-twords.herokuapp.com/twords/',
       words: data.words,
       cloudVisible: data.cloud_visible,
       date: (data.date ? moment(data.date) : moment()),
@@ -21,7 +21,7 @@ class Application extends React.Component {
   render() {
     const handleChange = (date) => {
       console.log(date['_d'])
-      window.location = this.state.apiUrl + '?date=' + date['_d']
+      window.location = this.state.apiUrl + date['_d']
     }
     if  (this.state.cloudVisible) {
       return (
