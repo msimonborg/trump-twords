@@ -14,7 +14,9 @@ class TwordsController < ApplicationController
   before_action :set_date_range, only: :index
 
   def index
-    @tword = Tword.by_screen_name(SCREEN_NAME).in_date_range(@date_range).recent.first
+    @date     = @date_range.first
+    @greeting = GREETINGS.sample    
+    @tword    = Tword.by_screen_name(SCREEN_NAME).in_date_range(@date_range).recent.first
     if @tword.blank?
       Twords.config do |c|
         c.up_to { @date_range.first }
@@ -25,8 +27,6 @@ class TwordsController < ApplicationController
         c.up_to { Time.now }
       end
     end
-
-    @greeting = GREETINGS.sample
   end
 
   def date_picker

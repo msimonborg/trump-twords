@@ -13,7 +13,7 @@ class Application extends React.Component {
     this.state = {
       apiUrl: data.environment === 'development' ? 'http://localhost:3000/twords/' : 'http://www.trumpwords.exposed/twords/',
       words: data.words,
-      cloudVisible: data.cloud_visible,
+      cloudVisible: false,
       date: (data.date ? moment(data.date) : moment()),
       greeting: data.greeting,
     }
@@ -21,12 +21,13 @@ class Application extends React.Component {
 
   render() {
     const handleChange = (date) => {
-      console.log(date['_d'])
-      var url = this.state.apiUrl + date['_d'] + '.json'
-      var request = new XMLHttpRequest()
+      date = date['_d']
+      console.log(date)
+      let url = this.state.apiUrl + date + '.json'
+      let request = new XMLHttpRequest()
       request.open("GET", url)
       request.addEventListener("load", () => {
-        var response = JSON.parse(request.response)
+        let response = JSON.parse(request.response)
         console.log(response)
         this.setState({ words: response.words, date: moment(response.date) })
       });
