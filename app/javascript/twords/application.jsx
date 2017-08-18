@@ -1,32 +1,28 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import Cloud from '../twords/cloud'
 import DatePickerWrapper from '../twords/date_picker_wrapper'
 import moment from 'moment'
 
-class Application extends React.Component {
-  constructor() {
-    const wordsData = document.getElementById('words_data')
-    const data = JSON.parse(wordsData.getAttribute('data'))
-    super()
+export default class Application extends React.Component {
+  constructor(props) {
+    super(props)
     this.state = {
-      apiUrl: data.environment === 'development' ? 'http://localhost:3000/twords/' : 'http://www.trumpwords.exposed/twords/',
-      words: data.words,
-      cloudVisible: false,
-      date: (data.date ? moment(data.date) : moment()),
-      greeting: data.greeting,
+      apiUrl: props.apiUrl,
+      words: props.words,
+      cloudVisible: props.cloudVisible,
+      date: props.date,
+      greeting: props.greeting,
     }
   }
 
   handleDateChange(date) {
     date = date['_d']
-    console.log(date)
-    let url = this.state.apiUrl + date + '.json'
-    let request = new XMLHttpRequest()
+    const url = this.state.apiUrl + date + '.json'
+    const request = new XMLHttpRequest()
+    console.log(date)    
     request.open("GET", url)
     request.addEventListener("load", () => {
-      let response = JSON.parse(request.response)
+      const response = JSON.parse(request.response)
       console.log(response)
       this.setState({ words: response.words, date: moment(response.date) })
     });
@@ -53,8 +49,3 @@ class Application extends React.Component {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Application />, document.getElementById('root')
-  )
-});
