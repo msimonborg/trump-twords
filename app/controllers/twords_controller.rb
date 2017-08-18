@@ -41,9 +41,10 @@ class TwordsController < ApplicationController
         c.up_to { Time.now }
       end
     end
-    @cloud_visible = true
 
-    render :index
+    respond_to do |format|
+      format.json { render json: { words: @tword.words, date: @date } }
+    end
   end
 
   private

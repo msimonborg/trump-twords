@@ -22,8 +22,17 @@ class Application extends React.Component {
   render() {
     const handleChange = (date) => {
       console.log(date['_d'])
-      window.location = this.state.apiUrl + date['_d']
+      var url = this.state.apiUrl + date['_d'] + '.json'
+      var request = new XMLHttpRequest()
+      request.open("GET", url)
+      request.addEventListener("load", () => {
+        var response = JSON.parse(request.response)
+        console.log(response)
+        this.setState({ words: response.words, date: moment(response.date) })
+      });
+      request.send()
     }
+
     if  (this.state.cloudVisible) {
       return (
         <div>
@@ -35,7 +44,6 @@ class Application extends React.Component {
       return (
         <div>
           <button id="start" onClick={() => this.setState({cloudVisible: true})}>{this.state.greeting}</button>
-          <div id="date-picker"></div>
         </div>
       )
     }
