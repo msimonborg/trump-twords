@@ -27,6 +27,7 @@ html, body {
   left: 0;
   position: absolute;
   z-index: 1;
+  text-shadow: -0.05px 0 #4F4C4C, 0 0.05px #4F4C4C, 0.05px 0 #4F4C4C, 0 -0.05px #4F4C4C;  
 }
 
 #start-button {
@@ -46,9 +47,9 @@ html, body {
 #datepicker-input {
   background-color: transparent;
   color: gold;
-  text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
+  text-shadow: -0.3px 0 black, 0 0.3px black, 0.3px 0 black, 0 -0.3px black;
   border: 0px;
-  font-family: 'Permanent Marker';
+  font-family: 'Pontano Sans', sans-serif;
   margin: 5px;
   font-size: 150%;
 }
