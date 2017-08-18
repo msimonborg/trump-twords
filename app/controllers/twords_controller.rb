@@ -45,7 +45,7 @@ class TwordsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json { render json: { words: @tword.words, date: @date } }
+      format.json { render json: { words: @tword.sometimes_shuffle_words, date: @date } }
     end
   end
 

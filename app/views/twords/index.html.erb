@@ -1,7 +1,7 @@
 <%= content_tag :div,
   id: :words_data,
   data: {
-    words: @tword.words,
+    words: @tword.sometimes_shuffle_words,
     environment: Rails.env,
     cloud_visible: @cloud_visible,
     date: @date,

@@ -13,4 +13,8 @@ class Tword < ApplicationRecord
     return all unless date_range
     where created_at: date_range
   end
+
+  def sometimes_shuffle_words
+    [true, false].sample ? words.shuffle : words
+  end
 end
