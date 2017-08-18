@@ -5,7 +5,8 @@ class TwordsController < ApplicationController
     'all hail the sharpee president',
     'heil twitler',
     'i have the best words',
-    'when you\'re a star they just let you be president'
+    'when you\'re a star they just let you be president',
+    'make our presidents great again!'
   ]
 
   before_action :set_date_range, only: :index

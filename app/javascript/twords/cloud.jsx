@@ -10,7 +10,7 @@ export default class Cloud extends React.Component {
       fontFamily: 'Permanent Marker',
       fontWeight: 100,
       gridSize: Math.round(16 * $('#my-canvas').width() / 10000),
-      weightFactor: 4,
+      weightFactor: 10,
       minSize: 1
     })
 
