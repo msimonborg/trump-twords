@@ -5,7 +5,7 @@ Twords.config do |config|
                       be on the for to and at our of in rt a with &amp;
                       that it by as if was - --]
   #
-  config.range = 7
+  config.range = 30
   # config.up_to { Time.now }
   config.include_hashtags = true
   # config.include_uris     = false

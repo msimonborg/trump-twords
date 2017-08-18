@@ -6,8 +6,9 @@ class TwordsController < ApplicationController
     'heil twitler',
     'i have the best words',
     'when you\'re a star they just let you be president',
-    'make our presidents great again!'
-  ]
+    'make our presidents great again!',
+    'is this gonna last forever?'
+  ].freeze
 
   before_action :set_date_range, only: :index
 
