@@ -11,6 +11,12 @@ html, body {
   height: 100%;
 }
 
+#root {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+}
+
 #my-canvas {
   color: #999999;
   min-height: 100%;
@@ -19,15 +25,16 @@ html, body {
   top: 0;
   left: 0;
   position: absolute;
-  z-index: -50; 
+  z-index: 1;
 }
 
 #start-button {
-  width: 30%;
-  height: 20%;
-  top: 40%;
-  left: 35%;
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
   position: absolute;
+  text-align: center;  
 }
 
 #date-picker {
@@ -35,11 +42,28 @@ html, body {
   z-index: 50;
 }
 
+#datepicker-input {
+  background-color: transparent;
+  color: gold;
+  text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
+  border: 0px;
+  font-family: 'Permanent Marker';
+  margin: 5px;
+  font-size: 150%;
+}
+
 #start {
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
   position: absolute;
+  text-align: center; 
   font-family: 'Permanent Marker';
   border: 0px;
-  background-color: #fff;
+  background-color: transparent;
   font-size: 400%;
   color: gold;
+  text-shadow: -1px 0 black, 0 3px black, 3px 0 black, 0 -1px black;
+  z-index: 100;
 }

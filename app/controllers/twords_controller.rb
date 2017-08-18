@@ -1,5 +1,12 @@
 class TwordsController < ApplicationController
   SCREEN_NAME = 'realdonaldtrump'.freeze
+  GREETINGS = [
+    'grab me by the pussy',
+    'all hail the sharpee president',
+    'heil twitler',
+    'i have the best words',
+    'when you\'re a star they just let you be president'
+  ]
 
   before_action :set_date_range, only: :index
 
@@ -15,6 +22,8 @@ class TwordsController < ApplicationController
         c.up_to { Time.now }
       end
     end
+
+    @greeting = GREETINGS.sample
   end
 
   def date_picker

@@ -1,8 +1,6 @@
 import React from 'react';
-import DatePicker from 'react-datepicker';
-  
-// CSS Modules, react-datepicker-cssmodules.css 
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css'; 
+import DatePickerInput from './date_picker_input'
+import DatePicker from 'react-datepicker';  
  
 export default class DatePickerWrapper extends React.Component {
   constructor (props) {
@@ -11,8 +9,11 @@ export default class DatePickerWrapper extends React.Component {
  
   render() {
     return <DatePicker
-        selected={this.props.selected}
-        onChange={this.props.onChange}
+      customInput={<DatePickerInput />}
+      selected={this.props.selected}
+      onChange={this.props.onChange}
+      withPortal
+      fixedHeight
     />;
   }
 }

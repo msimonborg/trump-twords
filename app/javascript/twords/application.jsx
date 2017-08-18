@@ -15,6 +15,7 @@ class Application extends React.Component {
       words: data.words,
       cloudVisible: data.cloud_visible,
       date: (data.date ? moment(data.date) : moment()),
+      greeting: data.greeting,
     }
   }
 
@@ -33,9 +34,7 @@ class Application extends React.Component {
     } else {
       return (
         <div>
-          <div id="start-button">
-            <button id="start" onClick={() => this.setState({cloudVisible: true})}>grab me by the pussy</button>
-          </div>
+          <button id="start" onClick={() => this.setState({cloudVisible: true})}>{this.state.greeting}</button>
           <div id="date-picker"></div>
         </div>
       )
