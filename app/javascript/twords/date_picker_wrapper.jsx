@@ -8,11 +8,15 @@ export default class DatePickerWrapper extends React.Component {
   }
  
   render() {
-    return <DatePicker
-      customInput={<DatePickerInput />}
-      selected={this.props.selected}
-      onChange={this.props.onChange}
-      fixedHeight
-    />;
+    return (
+      <div id="date-picker">      
+        <DatePicker
+          customInput={<DatePickerInput />}
+          selected={this.props.selected}
+          onChange={this.props.onChange}
+          fixedHeight
+        />
+      </div>
+    )
   }
 }

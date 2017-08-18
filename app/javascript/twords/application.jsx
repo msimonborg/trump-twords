@@ -1,6 +1,7 @@
 import React from 'react'
-import Cloud from '../twords/cloud'
-import DatePickerWrapper from '../twords/date_picker_wrapper'
+import Cloud from './cloud'
+import DatePickerWrapper from './date_picker_wrapper'
+import Greeting from './greeting'
 import moment from 'moment'
 
 export default class Application extends React.Component {
@@ -33,16 +34,14 @@ export default class Application extends React.Component {
     if  (this.state.cloudVisible) {
       return (
         <div>
-          {<Cloud words={this.state.words} />}
-          <div id="date-picker">
-            {<DatePickerWrapper selected={this.state.date} onChange={this.handleDateChange.bind(this)}/>}
-          </div>
+          <Cloud words={this.state.words} />
+          <DatePickerWrapper selected={this.state.date} onChange={this.handleDateChange.bind(this)}/>
         </div>
       )
     } else {
       return (
         <div>
-          <button id="start" onClick={() => this.setState({cloudVisible: true})}>{this.state.greeting}</button>
+          <Greeting onClick={() => this.setState({cloudVisible: true})} greeting={this.state.greeting} />
         </div>
       )
     }
