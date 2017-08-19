@@ -17,5 +17,9 @@ module TrumpTwords
 
     # Dynamic error pages
     config.exceptions_app = self.routes
+
+    # Use eastern US time zone
+    config.time_zone = 'Eastern Time (US & Canada)'
+    config.active_record.default_timezone = :local
   end
 end
