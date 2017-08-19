@@ -7,6 +7,7 @@ import moment from 'moment'
 export default class Application extends React.Component {
   constructor(props) {
     super(props)
+    this.handleDateChange = this.handleDateChange.bind(this)
     this.state = {
       apiUrl: props.apiUrl,
       words: props.words,
@@ -26,7 +27,7 @@ export default class Application extends React.Component {
       const response = JSON.parse(request.response)
       console.log(response)
       this.setState({ words: response.words, date: moment(response.date) })
-    });
+    })
     request.send()
   }
 
@@ -35,7 +36,7 @@ export default class Application extends React.Component {
       return (
         <div>
           <Cloud words={this.state.words} />
-          <DatePickerWrapper selected={this.state.date} onChange={this.handleDateChange.bind(this)}/>
+          <DatePickerWrapper selected={this.state.date} onChange={this.handleDateChange}/>
         </div>
       )
     } else {

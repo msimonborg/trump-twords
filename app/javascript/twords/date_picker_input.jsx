@@ -1,16 +1,13 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 
-export default class DatePickerInput extends React.Component {
-  
-  render () {
-    return (
-      <Button
-        bsStyle='primary'
-        id="datepicker-input"
-        onClick={this.props.onClick}>
-        {this.props.value}
-      </Button>
-    )
-  }
+export default function DatePickerInput(props) {
+  return (
+    <Button
+      bsStyle='primary'
+      id="datepicker-input"
+      onClick={props.onClick}>
+      {props.value}
+    </Button>
+  )
 }
