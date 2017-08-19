@@ -2,7 +2,7 @@
 
 Displays a word cloud of POTUS's last 30 days of Twitter activity.
 
-[See it on Heroku](http://trumpwords.exposed)
+[See it on Heroku](http://www.trumpwords.exposed)
 
 * Ruby 2.4.1
 
