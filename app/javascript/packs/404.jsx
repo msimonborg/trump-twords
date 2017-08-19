@@ -20,25 +20,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function notFoundWords() {
   const messages = ['404', 'sorry', 'not found', 'whoops!', 'try again', 'better luck next time', 'do over!']
+  const randomMessage = () => messages[Math.floor(Math.random() * messages.length)]  
   const words = []
+
   words.push(['404', 30])
   
   for (let i = 20; i >= 0; i--) {
     for (let n = 0; n < 10; n++) {
-      words.push([messages[Math.floor(Math.random() * messages.length)], (i - n)])
+      words.push([randomMessage(), (i - n)])
     }
   }
 
   for (let i = 0; i < 200; i++) {
-    words.push([messages[Math.floor(Math.random() * messages.length)], 3])
+    words.push([randomMessage(), 3])
   }
   
   for (let i = 0; i < 400; i++) {
-    words.push([messages[Math.floor(Math.random() * messages.length)], 2])
+    words.push([randomMessage(), 2])
   }
 
   for (let i = 0; i < 800; i++) {
-    words.push([messages[Math.floor(Math.random() * messages.length)], 1])
+    words.push([randomMessage(), 1])
   }
 
   return words
