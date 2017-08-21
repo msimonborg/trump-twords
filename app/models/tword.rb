@@ -14,6 +14,11 @@ class Tword < ApplicationRecord
     where created_at: date_range
   end
 
+  # Returns the #created_at attribute of the oldest Tword
+  def self.oldest_created_at
+    order(created_at: :desc).select(:created_at).last&.created_at
+  end
+
   def sometimes_shuffle_words
     [true, false].sample ? words.shuffle : words
   end

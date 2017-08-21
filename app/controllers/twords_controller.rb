@@ -39,7 +39,7 @@ class TwordsController < ApplicationController
   end
 
   def set_oldest_date
-    @oldest_date = Tword.order(created_at: :desc).select(:created_at).last&.created_at
+    @oldest_date = Tword.oldest_created_at
   end
 
   def set_date_range

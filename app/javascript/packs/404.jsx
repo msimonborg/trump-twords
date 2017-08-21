@@ -11,9 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const words = notFoundWords()
   const cloudVisible = true
   const date = moment()
+  const minDate = (data.oldest_date ? moment(data.oldest_date) : moment())
 
   ReactDOM.render(
-    <Application apiUrl={apiUrl} words={words} cloudVisible={cloudVisible} date={date} />,
+    <Application
+      apiUrl={apiUrl}
+      words={words}
+      cloudVisible={cloudVisible}
+      date={date}
+      minDate={minDate} />,
     document.getElementById('root')
   )
 })

@@ -1,4 +1,9 @@
-<%= content_tag :div, id: :data_tag, data: { environment: Rails.env }.to_json do %>
+<%= content_tag :div,
+  id: :data_tag,
+  data: {
+    environment: Rails.env,
+    oldest_date: @oldest_date
+  }.to_json do %>
 <% end %>
 
 
