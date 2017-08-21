@@ -3,7 +3,6 @@ class TwordsController < ApplicationController
   GREETINGS   = Rails.configuration.greetings
 
   before_action :set_date_range, :set_oldest_date, only: :index
-  after_action 
 
   def index
     @date     = @date_range.first.noon
