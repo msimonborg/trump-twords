@@ -2,7 +2,7 @@ class TwordsController < ApplicationController
   SCREEN_NAME = Rails.configuration.screen_name
   GREETINGS   = Rails.configuration.greetings
 
-  before_action :set_date_range, only: :index
+  before_action :set_date_range, :set_oldest_date, only: :index
 
   def index
     @date     = @date_range.first.noon
@@ -18,7 +18,9 @@ class TwordsController < ApplicationController
     create_new_tword_by_date if @tword.blank?
     
     respond_to do |format|
-      format.json { render json: { words: @tword.sometimes_shuffle_words, date: @date } }
+      format.json do
+        render json: { words: @tword.sometimes_shuffle_words, date: @date }
+      end
     end
   end
 
@@ -33,6 +35,10 @@ class TwordsController < ApplicationController
       )
       c.up_to { Time.now }
     end
+  end
+
+  def set_oldest_date
+    @oldest_date = Tword.order(created_at: :desc).select(:created_at).pluck(:created_at).last
   end
 
   def set_date_range

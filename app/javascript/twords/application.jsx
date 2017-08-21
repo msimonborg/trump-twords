@@ -36,7 +36,12 @@ export default class Application extends React.Component {
       return (
         <div>
           <Cloud words={this.state.words} />
-          <DatePickerWrapper selected={this.state.date} onChange={this.handleDateChange} maxDate={moment()}/>
+          <DatePickerWrapper
+            selected={this.state.date}
+            onChange={this.handleDateChange}
+            maxDate={moment()}
+            minDate={this.props.minDate}
+          />
         </div>
       )
     } else {

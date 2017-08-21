@@ -10,6 +10,7 @@ export default function DatePickerWrapper(props) {
         selected={props.selected}
         onChange={props.onChange}
         maxDate={props.maxDate}
+        minDate={props.minDate}
         fixedHeight
       />
     </div>

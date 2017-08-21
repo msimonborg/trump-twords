@@ -21,9 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const words = data.words
   const greeting = data.greeting
   const cloudVisible = false
+  const minDate = moment(data.oldest_date)
 
   ReactDOM.render(
-    <Application apiUrl={apiUrl} words={words} cloudVisible={cloudVisible} date={date} greeting={greeting} />,
+    <Application
+      apiUrl={apiUrl}
+      words={words}
+      cloudVisible={cloudVisible}
+      date={date}
+      greeting={greeting}
+      minDate={minDate} />,
     document.getElementById('root')
   )
 });
