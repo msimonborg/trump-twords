@@ -40,6 +40,7 @@ module FetchTwordsTaskHelpers
                   recent.
                   first
     if tword.blank?
+      Twords.config { |c| c.up_to { time } }
       twords = Twords.new screen_name
       tword = Tword.create! screen_name: screen_name, words: twords.words_forward, created_at: time
       puts "created new twords for #{time}"
