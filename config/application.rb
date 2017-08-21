@@ -21,5 +21,20 @@ module TrumpTwords
     # Use eastern US time zone
     config.time_zone = 'Eastern Time (US & Canada)'
     config.active_record.default_timezone = :local
+
+    # Set the target Twitter screen name
+    config.screen_name = 'realdonaldtrump'.freeze
+
+    # Set the possible greetings for random generation
+    config.greetings = [
+      'grab me by the pussy',
+      'all hail the sharpie president',
+      'heil twitler',
+      'i have the best words',
+      'when you\'re a star they just let you be president',
+      'make our presidents great again!',
+      'is this gonna last forever?',
+      'with a stroke of the sharpie...'
+    ].freeze
   end
 end

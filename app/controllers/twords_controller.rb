@@ -1,15 +1,6 @@
 class TwordsController < ApplicationController
-  SCREEN_NAME = 'realdonaldtrump'.freeze
-  GREETINGS = [
-    'grab me by the pussy',
-    'all hail the sharpie president',
-    'heil twitler',
-    'i have the best words',
-    'when you\'re a star they just let you be president',
-    'make our presidents great again!',
-    'is this gonna last forever?',
-    'with a stroke of the sharpie...'
-  ].freeze
+  SCREEN_NAME = Rails.configuration.screen_name
+  GREETINGS   = Rails.configuration.greetings
 
   before_action :set_date_range, only: :index
 
