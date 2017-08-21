@@ -3,6 +3,7 @@ class TwordsController < ApplicationController
   GREETINGS   = Rails.configuration.greetings
 
   before_action :set_date_range, :set_oldest_date, only: :index
+  after_action 
 
   def index
     @date     = @date_range.first.noon
@@ -38,7 +39,7 @@ class TwordsController < ApplicationController
   end
 
   def set_oldest_date
-    @oldest_date = Tword.order(created_at: :desc).select(:created_at).last.created_at
+    @oldest_date = Tword.order(created_at: :desc).select(:created_at).last&.created_at
   end
 
   def set_date_range
