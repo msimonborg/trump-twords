@@ -9,17 +9,15 @@ export default class Application extends React.Component {
     super(props)
     this.handleDateChange = this.handleDateChange.bind(this)
     this.state = {
-      apiUrl: props.apiUrl,
       words: props.words,
       cloudVisible: props.cloudVisible,
       date: props.date,
-      greeting: props.greeting,
     }
   }
 
   handleDateChange(date) {
     date = date['_d']
-    const url = this.state.apiUrl + date + '.json'
+    const url = this.props.apiUrl + date + '.json'
     const request = new XMLHttpRequest()
     console.log(date)    
     request.open("GET", url)
@@ -47,7 +45,7 @@ export default class Application extends React.Component {
     } else {
       return (
         <div>
-          <Greeting onClick={() => this.setState({cloudVisible: true})} greeting={this.state.greeting} />
+          <Greeting onClick={() => this.setState({cloudVisible: true})} greeting={this.props.greeting} />
         </div>
       )
     }
