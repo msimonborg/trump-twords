@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const words = data.words
   const greeting = data.greeting
   const cloudVisible = false
-  const minDate = moment(data.oldest_date)
+  const minDate = (data.oldest_date ? moment(data.oldest_date) : moment())
 
   ReactDOM.render(
     <Application
