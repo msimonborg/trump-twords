@@ -17,39 +17,32 @@ class TwordsController < ApplicationController
     @date     = @date_range.first.noon
     @greeting = GREETINGS.sample    
     @tword    = Tword.by_screen_name(SCREEN_NAME).in_date_range(@date_range).recent.first
-    if @tword.blank?
-      Twords.config do |c|
-        c.up_to { @date }
-        twords = Twords.new SCREEN_NAME
-        @tword = Tword.create(
-          screen_name: SCREEN_NAME, words: twords.words_forward, created_at: @date
-        )
-        c.up_to { Time.now }
-      end
-    end
+    create_new_tword_by_date if @tword.blank?
   end
 
   def date_picker
     @date = params[:date]&.sub(/GMT[-|+]?\d{4}/, '').to_time
     return unless @date.present?
     @tword = Tword.by_screen_name(SCREEN_NAME).where(created_at: @date.beginning_of_day..@date.end_of_day).recent.first
-    if @tword.blank?
-      Twords.config do |c|
-        c.up_to { @date }
-        twords = Twords.new SCREEN_NAME
-        @tword = Tword.create(
-          screen_name: SCREEN_NAME, words: twords.words_forward, created_at: @date
-        )
-        c.up_to { Time.now }
-      end
-    end
-
+    create_new_tword_by_date if @tword.blank?
+    
     respond_to do |format|
       format.json { render json: { words: @tword.sometimes_shuffle_words, date: @date } }
     end
   end
 
   private
+
+  def create_new_tword_by_date
+    Twords.config do |c|
+      c.up_to { @date }
+      twords = Twords.new SCREEN_NAME
+      @tword = Tword.create(
+        screen_name: SCREEN_NAME, words: twords.words_forward, created_at: @date
+      )
+      c.up_to { Time.now }
+    end
+  end
 
   def set_date_range
     @date_range = if %i[year month day].all? { |date_param| params[date_param].present? }
